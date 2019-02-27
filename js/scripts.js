@@ -1,18 +1,11 @@
 $(document).ready(function() {
   $("#blanks form").submit(function(event) {
-    var personInput = $("input#person").val();
-    var placeInput= $("input#place").val();
-    var exclamationInput = $("input#exclamation").val();
-    var verbInput = $("input#verb").val();
-    var adjectiveInput = $("input#adjective").val();
-    var nounInput = $("input#noun").val();
+    var blanks = ["person", "place", "exclamation", "verb", "adjective", "noun"];
 
-    $(".person").text(personInput);
-    $(".place").text(placeInput);
-    $(".exclamation").text(exclamationInput);
-    $(".verb").text(verbInput);
-    $(".adjective").text(adjectiveInput);
-    $(".noun").text(nounInput);
+    blanks.forEach(function(blank){
+      var userInput = $("input#" + blank).val();
+      $("." + blank).text(userInput);
+    });
 
     $("#story").show();
 
